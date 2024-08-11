@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block content %}
+    <h5>Порядок добавления записи: 1 шаг - добавление автора, 2 шаг - добавление жанра, 3 шаг - добавление книги.</h5>
+    <a href="{% url 'author-form' %}" class="btn btn-outline-secondary" role="button" aria-pressed="true" style="width: 33%;">Шаг 1. Добавить автора</a>
+    <a href="{% url 'genre-form' %}" class="btn btn-outline-secondary" role="button" aria-pressed="true" style="width: 33%;">Шаг 2. Добавить жанр</a>
+    <a href="{% url 'book-form' %}" class="btn btn-outline-secondary" role="button" aria-pressed="true" style="width: 33%;">Шаг 3. Добавить книгу</a>
+{% endblock content %}

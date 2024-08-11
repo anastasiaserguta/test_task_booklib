@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<article class="media content-section">
+    <div class="media-body">
+        <div class="article-metadata">
+            <h2 class="article-title">{{ book.title }}</h2>
+            <h5 class="article-title">Авторы: {{ book.display_author }}</h5>
+            <h7 class="article-title" style="font-style: italic;">Жанры: {{ book.display_genre }}</h7>
+            <hr>
+            <p class="article-content">{{ book.description }}</p>
+            <hr>
+            <div style="text-align: right;"><h6 class="article-title">Год издания: {{ book.release_year }}</h6></div>
+        </div>
+        <small class="text-muted">ID книги: {{ book.book_id }}</small>
+    </div>
+</article>
+{% if user.profile.moderator == True %}
+<article class="media content-section">
+    <div>
+        <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'book-update' book.book_id %}">Редактировать карточку книги</a>
+        <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'book-delete' book.book_id %}">Удалить книгу</a>
+    </div>
+</article>
+{% endif %}
+{% endblock content %}
