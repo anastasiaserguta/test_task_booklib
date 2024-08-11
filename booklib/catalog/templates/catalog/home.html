@@ -5,13 +5,13 @@
     <div class="media-body">
         <div class="article-metadata">
             {% for auth in book.author %}
-            <a href="#" style="color: black;"><h7 class="mr-2">{{ auth.name }}</h7></a>
+            <a href="{% url 'author-detail' auth.author_id %}" style="color: black;"><h7 class="mr-2">{{ auth.name }}</h7></a>
             {% endfor %}
             {% for gen in book.genre %}
             <a href="#"><small class="text-muted">{{ gen.name }}</small></a>
             {% endfor %}
         </div>
-        <h2><a class="article-title" href="#">{{ book.title }}</a></h2>
+        <h2><a class="article-title" href="{% url 'book-detail' book.book_id %}">{{ book.title }}</a></h2>
         <p class="article-content" style="text-align: justify; text-indent: 20px;">{{ book.description }}</p>
     </div>
 </article>

@@ -22,8 +22,8 @@ class Author(models.Model):
     class Meta:
         ordering = ['name']
 
-    def get_absolute_url(self):
-        return reverse('author-detail', args=[str(self.id)])
+    # def get_absolute_url(self):
+    #     return reverse('author-detail')
 
     def __str__(self):
         return self.name

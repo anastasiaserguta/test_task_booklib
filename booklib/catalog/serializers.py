@@ -4,7 +4,7 @@ from .models import Book, Author, Genre
 class AuthorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Author
-        fields = ('name',)
+        fields = ('name', 'author_id',)
 
 class GenreSerializer(serializers.ModelSerializer):
     class Meta:

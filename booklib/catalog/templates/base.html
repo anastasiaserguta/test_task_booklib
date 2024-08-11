@@ -37,18 +37,17 @@
                         <a class="nav-item nav-link " href="{% url 'catalog-home' %}">Главная</a>
                         <a class="nav-item nav-link" href="{% url 'authors' %}">Авторы</a>
                         <a class="nav-item nav-link" href="{% url 'books' %}">Книги</a>
-                        <a class="nav-item nav-link" href="#">Поиск</a>
+                        <a class="nav-item nav-link" href="{% url 'search' %}">Поиск</a>
                         <a class="nav-item nav-link" href="{% url 'catalog-about' %}">О веб-сервисе</a>
                     </div>
                     <div class="navbar-nav">
                         {% if user.is_authenticated %}
-                        {% if user.profile.moderator == True %}
                         <a class="nav-item nav-link" href="#">Добавить книгу или автора</a>
-                        {% endif %}
                         <a class="nav-item nav-link" href="{% url 'profile' %}">Профиль</a>
                         <form method="post" action="{% url 'logout' %}">
                             {% csrf_token %}
-                            <button class="btn btn-outline-light" type="submit" style="border: none; padding: 8px; color: #cbd5db;">Выход</button>
+                            <button class="btn btn-outline-light" type="submit"
+                                style="border: none; padding: 8px; color: #cbd5db;">Выход</button>
                         </form>
                         {% else %}
                         <a class="nav-item nav-link" href="{% url 'login' %}">Вход</a>
