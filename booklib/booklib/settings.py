@@ -20,7 +20,7 @@ SECRET_KEY = environ.get(
 
 DEBUG = bool(environ.get("DJANGO_DEBUG", True))
 
-ALLOWED_HOSTS = ["127.0.0.1"]
+ALLOWED_HOSTS = ["anastasiaserguta.pythonanywhere.com",]
 
 
 # Application definition
@@ -73,11 +73,12 @@ WSGI_APPLICATION = "booklib.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
+THIS_FOLDER = Path(__file__).parent.resolve()
 
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "NAME": THIS_FOLDER / 'db.sqlite3',
     }
 }
 
@@ -122,7 +123,7 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 # The absolute path to the directory where collectstatic will collect static files for deployment.
-STATIC_ROOT = path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = '/home/anastasiaserguta/test_task_booklib/booklib/catalog/static'
 
 
 # Default primary key field type
@@ -136,10 +137,5 @@ CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 LOGIN_REDIRECT_URL = "catalog-home"
 LOGIN_URL = "login"
 
-MEDIA_ROOT = path.join(BASE_DIR, "media")
+MEDIA_ROOT = '/home/anastasiaserguta/test_task_booklib/booklib/media'
 MEDIA_URL = "/media/"
-
-# Heroku: Update database configuration from $DATABASE_URL.
-import dj_database_url
-db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(db_from_env)
