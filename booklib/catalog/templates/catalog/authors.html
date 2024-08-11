@@ -4,15 +4,13 @@
     <thead>
         <tr>
             <th scope="col">Имя</th>
-            <th scope="col">Описание</th>
             <th scope="col">ID</th>
         </tr>
     </thead>
     <tbody>
         {% for author in authors %}
         <tr>
-            <td>{{ author.name }}</td>
-            <td>{{ author.about_author }}</td>
+            <td><a href="{% url 'author-detail' author.author_id %}" style="color: black;">{{ author.name }}</a></td>
             <td>{{ author.author_id }}</td>
         </tr>
         {% endfor %}

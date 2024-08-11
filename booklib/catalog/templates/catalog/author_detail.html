@@ -27,4 +27,12 @@
     <h5 class="article-title" style="font-style: italic;"> книг пока нет</h5>
     {% endif %}
 </article>
+{% if user.profile.moderator == True %}
+<article class="media content-section">
+    <div>
+        <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'author-update' author.author_id %}">Редактировать карточку автора</a>
+        <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'author-delete' author.author_id %}">Удалить автора</a>
+    </div>
+</article>
+{% endif %}
 {% endblock content %}

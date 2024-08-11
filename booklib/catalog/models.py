@@ -5,37 +5,41 @@ from uuid import uuid4
 
 
 class Genre(models.Model):
-    name = models.CharField(max_length=200, help_text='введите жанр книги', blank=False)
+    name = models.CharField(verbose_name='Название жанра', max_length=200, blank=False)
 
     class Meta:
         ordering = ['name']
+
+    def get_absolute_url(self):
+        return reverse('succes')
 
     def __str__(self):
         return self.name
 
     
 class Author(models.Model):
-    name = models.CharField(max_length=100, blank=False, help_text='введите автора')
+    name = models.CharField(verbose_name='Фамилия и имя автора', max_length=100, blank=False)
     author_id = models.UUIDField(primary_key=True, default=uuid4(), null=False, unique=True, editable=False)
-    about_author = models.TextField(max_length=2000, help_text='об авторе', blank=True)
+    about_author = models.TextField(verbose_name='Об авторе', max_length=2000, blank=True)
 
     class Meta:
         ordering = ['name']
 
-    # def get_absolute_url(self):
-    #     return reverse('author-detail')
+    def get_absolute_url(self):
+        _id = str(self.author_id)
+        return reverse('author-detail', args=[_id])
 
     def __str__(self):
         return self.name
     
 
 class Book(models.Model):
-    title = models.CharField(max_length=300, blank=False, help_text='введите название книги')
-    author = models.ManyToManyField(Author)
-    description = models.TextField(max_length=2000, help_text='введите описание книги', blank=True)
-    genre = models.ManyToManyField(Genre, help_text='укажите жанр книги')
+    title = models.CharField(verbose_name='Название книги', max_length=300, blank=False)
+    author = models.ManyToManyField(Author, verbose_name='Автор')
+    description = models.TextField(verbose_name='Описание', max_length=2000, blank=True)
+    genre = models.ManyToManyField(Genre, verbose_name='Жанр')
     book_id = models.UUIDField(primary_key=True, default=uuid4(), null=False, unique=True, editable=False)
-    release_year = models.PositiveIntegerField(blank=True, validators=[MinValueValidator(800), MaxValueValidator(2050)], help_text='введите год выпуска книги (при его наличии)')
+    release_year = models.PositiveIntegerField(verbose_name='Год издания', null=True, blank=True, validators=[MinValueValidator(800), MaxValueValidator(2050)])
 
     class Meta:
         ordering = ['title']
@@ -44,7 +48,8 @@ class Book(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('book-detail', args=[str(self.id)])
+        _id = str(self.book_id)
+        return reverse('book-detail', args=[_id])
     
     def display_genre(self):
         return ', '.join([ genre.name for genre in self.genre.all()[:3]])
