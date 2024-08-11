@@ -6,13 +6,15 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('users', '0001_initial'),
+        ("users", "0001_initial"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='profile',
-            name='moderator',
-            field=models.BooleanField(default=False, verbose_name='обладает правами модератора'),
+            model_name="profile",
+            name="moderator",
+            field=models.BooleanField(
+                default=False, verbose_name="обладает правами модератора"
+            ),
         ),
     ]
