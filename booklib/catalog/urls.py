@@ -1,12 +1,28 @@
 from django.urls import path
 
 from . import views
-from .views import (AuthorCreateView, AuthorDeleteView, AuthorSearchResultView,
-                    AuthorUpdateView, BookCreateView, BookDeleteView,
-                    BookSearchResultsView, BookUpdateView, GenreCreateView,
-                    GenreSearchResultView, about, all_authors, all_books,
-                    author_detail, book_detail, create, home, search, succes,
-                    succes_delete)
+from .views import (
+    AuthorCreateView,
+    AuthorDeleteView,
+    AuthorSearchResultView,
+    AuthorUpdateView,
+    BookCreateView,
+    BookDeleteView,
+    BookSearchResultsView,
+    BookUpdateView,
+    GenreCreateView,
+    GenreSearchResultView,
+    about,
+    all_authors,
+    all_books,
+    author_detail,
+    book_detail,
+    create,
+    home,
+    search,
+    succes,
+    succes_delete,
+)
 
 urlpatterns = [
     path("about/", views.about, name="catalog-about"),
