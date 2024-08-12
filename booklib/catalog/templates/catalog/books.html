@@ -12,7 +12,11 @@
         {% for book in books %}
         <tr>
             <td><a href="{% url 'book-detail' book.book_id %}" style="color: black;">{{ book.title }}</a></td>
+            {% if book.release_year != None %}
             <td>{{ book.release_year }}</td>
+            {% else %}
+            <td>не указан</td>
+            {% endif %}
             <td>{{ book.book_id }}</td>
         </tr>
         {% endfor %}
