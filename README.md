@@ -5,7 +5,7 @@
 **Порядок запуска:**
 1) клонирование репозитория (git clone --depth=1 --single-branch -b dev https://github.com/anastasiaserguta/test_task_booklib.git ) из ветки dev (там находится рабочая локальная версия, ветка main используется для размещения проекта на облачном хостинге);
 2) установка зависимостей из requirements.txt (команда -> pip freeze install requirements.txt);
-3) запуск программы стандарным для джанго способом;
+3) запуск программы стандарным для джанго способом (python manage.py runserver);
 4) веб-сервис развернут по следующей ссылке [https://anastasiaserguta.pythonanywhere.com/];
 
 ***
