@@ -23,7 +23,7 @@ class Author(models.Model):
         verbose_name="Фамилия и имя автора", max_length=100, blank=False
     )
     author_id = models.UUIDField(
-        primary_key=True, default=uuid4(), null=False, unique=True, editable=False
+        primary_key=True, default=uuid4, null=False, unique=True, editable=False
     )
     about_author = models.TextField(
         verbose_name="Об авторе", max_length=2000, blank=True
@@ -45,7 +45,7 @@ class Book(models.Model):
     description = models.TextField(verbose_name="Описание", max_length=2000, blank=True)
     genre = models.ManyToManyField(Genre, verbose_name="Жанр")
     book_id = models.UUIDField(
-        primary_key=True, default=uuid4(), null=False, unique=True, editable=False
+        primary_key=True, default=uuid4, null=False, unique=True, editable=False
     )
     release_year = models.PositiveIntegerField(
         verbose_name="Год издания",

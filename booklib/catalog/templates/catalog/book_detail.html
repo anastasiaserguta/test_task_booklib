@@ -9,7 +9,11 @@
             <hr>
             <p class="article-content">{{ book.description }}</p>
             <hr>
+            {% if book.release_year != None %}
             <div style="text-align: right;"><h6 class="article-title">Год издания: {{ book.release_year }}</h6></div>
+            {% else %}
+            <div style="text-align: right;"><h6 class="article-title">год издания не указан</h6></div>
+            {% endif %}
         </div>
         <small class="text-muted">ID книги: {{ book.book_id }}</small>
     </div>
