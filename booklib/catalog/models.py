@@ -33,8 +33,7 @@ class Author(models.Model):
         ordering = ["name"]
 
     def get_absolute_url(self):
-        _id = str(self.author_id)
-        return reverse("author-detail", args=[_id])
+        return reverse("author-detail", kwargs={'_id': self.author_id})
 
     def __str__(self):
         return self.name
@@ -62,8 +61,7 @@ class Book(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        _id = str(self.book_id)
-        return reverse("book-detail", args=[_id])
+        return reverse("book-detail", kwargs={'_id': self.book_id})
 
     def display_genre(self):
         return ", ".join([genre.name for genre in self.genre.all()[:3]])
