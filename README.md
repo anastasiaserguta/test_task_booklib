@@ -4,7 +4,7 @@
 
 **Порядок запуска:**
 1) создание и активация виртуального окружения, клонирование репозитория (git clone --depth=1 --single-branch -b dev https://github.com/anastasiaserguta/test_task_booklib.git ) из ветки dev (там находится рабочая локальная версия, ветка main используется для размещения проекта на облачном хостинге);
-2) установка в виртуальное окружение зависимостей из requirements.txt (команда -> pip freeze install requirements.txt);
+2) установка в виртуальное окружение зависимостей из requirements.txt (команда -> pip install -r requirements.txt);
 3) выполнение миграций базы (в директории с файлом manage.py последовательно выполнить команды -> python manage.py makemigrations -> python manage.py migrate), будет создана база и ее можно использовать для регистрации, авторизации, добавления и просмотра записей;
 4) запуск программы стандарным для джанго способом (python manage.py runserver);
 5) веб-сервис развернут по следующей ссылке [https://anastasiaserguta.pythonanywhere.com/] (тестирование прав модератора: логин - test_moderator, пароль - test1999).
